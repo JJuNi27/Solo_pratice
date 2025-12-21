@@ -4,6 +4,21 @@
 
 # 문자열.split(기준)
 
+# 입력 예시 abc def
+N = input()
+print(N)
+print(type(N))
+# 결과
+# "abc def"
+# <class 'str'>
+
+N = input().split()
+print(N)
+print(type(N))
+# 결과
+# ['abc', 'def']
+# <class 'list'>
+
 
 s = "apple,banana,orange"
 print(s.split(","))
