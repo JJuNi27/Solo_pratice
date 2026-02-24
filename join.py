@@ -3,7 +3,9 @@
 # 예시
 list_example = ['Hello', 'World', 'Python']
 result = ' '.join(list_example)
-print(result)  # 출력: Hello World Python
+print(result)  
+# 내부적으로 'Hello' + ' ' + 'World' + ' ' + 'Python'
+# 출력: Hello World Python
 
 lst = ['A', 'B', 'C']
 print(''.join(lst))
