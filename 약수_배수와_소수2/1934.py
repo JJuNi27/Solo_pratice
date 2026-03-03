@@ -14,4 +14,6 @@ T = int(input())
 for _ in range(T):
     a, b = map(int, input().split())
     lcm = a * b // math.gcd(a, b)
+    # lcm = a // gcd(a, b) * b
+    # ㄴ 이 형태가베스트 a*b가 너무 커지는걸 방지!
     print(lcm)
