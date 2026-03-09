@@ -22,3 +22,14 @@ for i in range(5):
 for i in S:
     print(i)
 # -> S의 각 문자 출력
+
+# range(시작, 끝, 간격) 문법
+
+# for j in range(i * i, N + 1, i):
+#     prime[j] = False
+
+# 시작: i * i
+# 끝: N + 1
+# 간격: i
+
+# 즉, i의 배수들
