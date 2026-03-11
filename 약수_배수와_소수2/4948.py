@@ -14,26 +14,57 @@
 # 일단 무한 반복하고 입력이 0이면 종료
 # n부터 n+1까지 반복하며 소수를 카운트하자 그리고 출력하는거야
 
+import sys
+input = sys.stdin.readline
+
+nums = []
+
 while True:
-    val = int(input())
-    # 소수를 세는 카운트
-    count = 0
-    # 0이면 종료
-    if val == 0:
+    n = int(input())
+    if n == 0:
         break
-    else:
-        # n부터 2n까지
-        for i in range(val + 1,(2*val) + 1):
-            # 소수인지 판별
-            is_prime = True
-            # 소수 판별
-            if i < 2:
-                is_prime = False
-            else:
-                for j in range(2, int(i**0.5) + 1):
-                    if i % j == 0:
-                        is_prime = False
-                        break
-                if is_prime:
-                    count += 1
+    nums.append(n)
+
+limit = 2 * max(nums)
+prime = [True] * (limit + 1)
+prime[0] = prime[1] = False
+
+for i in range(2, int(limit ** 0.5) + 1):
+    if prime[i]:
+        for j in range(i * i, limit + 1, i):
+            prime[j] = False
+
+for n in nums:
+    count = 0
+    for i in range(n + 1, 2 * n + 1):
+        if prime[i]:
+            count += 1
     print(count)
+
+
+# 내가 쓴 코드
+# -------------------------------------
+
+# while True:
+#     val = int(input())
+#     # 소수를 세는 카운트
+#     count = 0
+#     # 0이면 종료
+#     if val == 0:
+#         break
+#     else:
+#         # n부터 2n까지
+#         for i in range(val + 1,(2*val) + 1):
+#             # 소수인지 판별
+#             is_prime = True
+#             # 소수 판별
+#             if i < 2:
+#                 is_prime = False
+#             else:
+#                 for j in range(2, int(i**0.5) + 1):
+#                     if i % j == 0:
+#                         is_prime = False
+#                         break
+#                 if is_prime:
+#                     count += 1
+#     print(count)
