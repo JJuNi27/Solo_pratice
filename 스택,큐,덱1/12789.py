@@ -16,17 +16,25 @@ input = sys.stdin.readline
 N = int(input())
 
 # 예비줄
-lit = []
+stack = []
 
 # line =[5, 4, 1, 3, 2]
 line = list(map(int, (input().split())))
-for i in line:
-    if i > 1:
-        lit.append(i)
-        line.remove(i)
-    elif i == 1:
-        break
-        
 
-print(lit)
-print(line)
+now = 1
+
+for i in line:
+    if i == now:
+        now += 1
+        while stack and stack[-1] == now:
+            stack.pop()
+            now += 1
+    else:
+        stack.append(i)
+while stack and stack[-1] == now:
+            stack.pop()
+            now += 1
+if now == N + 1:
+    print("Nice")
+else:
+    print("Sad")
