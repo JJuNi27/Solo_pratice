@@ -40,14 +40,21 @@ num = list(map(int, input().split()))
 
 M = int(input())
 C = list(map(int, input().split()))
-
-# 최종 출력 리스트
+count = 0
 result = []
-
-# 만약에 type_[i]가 0이면? 큐(선입선출) 1이면? 스택(후입선출)
-# 근데 스택은 어처피 후입선출이라 변하지 않음
+# 만약에 type_가 0이면? 큐 1이면? 스택
 for i in range(N):
     if type_[i] == 0:
+        count += 1
         result.append(num[i])
 
-print(*result)
+result.reverse()
+
+i = 0
+while True:
+    if M > len(result):
+        result.append(C[i])
+        i += 1
+    else:
+        print(*result[:M])
+        break
